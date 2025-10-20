@@ -54,14 +54,4 @@ class Product
     {
         return $this->availableQuantity;
     }
-
-    public function addToCart(Cart $cart, int $quantity)
-    {
-        return $cart->addProduct($this, $quantity);
-    }
-
-    public function removeFromCart(Cart $cart)
-    {
-        return $cart->removeProduct($this);
-    }
 }
