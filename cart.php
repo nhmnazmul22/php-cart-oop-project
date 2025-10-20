@@ -1,6 +1,8 @@
 <?php
 
 
+
+
 class Cart
 {
     /**
@@ -8,7 +10,12 @@ class Cart
      * @var cartItem[]
      */
     private array $cartItems = [];
+    private PricingStrategy $pricingStrategy;
 
+    public function __construct(PricingStrategy $strategy)
+    {
+        $this->pricingStrategy = $strategy;
+    }
 
     public function setItem($cartItem): void
     {
@@ -59,11 +66,8 @@ class Cart
 
     public function getTotalSum()
     {
-        $totalSum = 0;
-        foreach ($this->cartItems as $item) {
-            $totalSum += $item->getQuantity() * $item->getProduct()->getPrice();
-        }
 
-        return $totalSum;
+
+        return $this->pricingStrategy->calculate($this);
     }
 }

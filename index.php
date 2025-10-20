@@ -3,15 +3,16 @@
 require_once "Product.php";
 require_once "Cart.php";
 require_once "CartItem.php";
+require_once "PricingStrategies.php";
 
 $product1 = new Product(1, "Iphone 11", 2500, 10);
 $product2 = new Product(2, "M2 SSD", 400, 10);
 $product3 = new Product(3, "Samsung galaxy S20", 3200, 10);
 
 
-$cart = new Cart();
+$cart = new Cart(new DiscountPrice());
 $cartItem1 = $cart->addProduct($product1, 1);
-$cartItem2 = $product2->addToCart($cart, 1);
+$cartItem2 = $cart->addProduct($product2, 1);
 
 echo "Number of items in cart ";
 echo $cart->getTotalQuantity() . PHP_EOL;
