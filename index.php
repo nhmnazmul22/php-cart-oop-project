@@ -1,5 +1,7 @@
 <?php
-require __DIR__ . "../vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php";
+
+use App\Controllers\CartController;
 use Bramus\Router\Router;
 
 $router = new Router();
@@ -27,6 +29,11 @@ $router->get("/json-decoded", function () {
     }
 
     // var_dump(json_decode($jsonobj, true));
+});
+
+$router->post("/addProduct", function () {
+    $controller = new CartController();
+    $controller->addProduct();
 });
 
 // Run the router

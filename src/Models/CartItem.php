@@ -5,10 +5,10 @@ use Exception;
 
 class cartItem
 {
-    private Product $product;
+    private ProductModel $product;
     private int $quantity = 0;
 
-    public function __construct(Product $product, int $quantity)
+    public function __construct(ProductModel $product, int $quantity)
     {
         $this->product = $product;
         $this->quantity = $quantity;

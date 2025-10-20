@@ -2,12 +2,12 @@
 
 use App\Models\Cart;
 use App\Models\DiscountPrice;
-use App\Models\Product;
+use App\Models\ProductModel;
 
 
-$product1 = new Product(1, "Iphone 11", 2500, 10);
-$product2 = new Product(2, "M2 SSD", 400, 10);
-$product3 = new Product(3, "Samsung galaxy S20", 3200, 10);
+$product1 = new ProductModel(1, "Iphone 11", 2500, 10);
+$product2 = new ProductModel(2, "M2 SSD", 400, 10);
+$product3 = new ProductModel(3, "Samsung galaxy S20", 3200, 10);
 
 
 $cart = new Cart(new DiscountPrice());

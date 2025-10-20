@@ -2,11 +2,11 @@
 
 namespace App\Interfaces;
 use App\Models\cartItem;
-use App\Models\Product;
+use App\Models\ProductModel;
 
 interface ICartOperations
 {
-    public function addProduct(Product $product, int $quantity): cartItem;
-    public function removeProduct(Product $product): void;
+    public function addProduct(ProductModel $product, int $quantity): cartItem;
+    public function removeProduct(ProductModel $product): void;
     public function getItems(): array;
 }

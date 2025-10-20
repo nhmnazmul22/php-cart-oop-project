@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Models;
+
 use App\Interfaces\ICartCalculation;
 use App\Interfaces\ICartOperations;
+use App\Models\PricingStrategy;
 
 class Cart implements ICartCalculation, ICartOperations
 {
@@ -28,7 +30,7 @@ class Cart implements ICartCalculation, ICartOperations
         return $this->cartItems[$productId] ?? null;
     }
 
-    public function addProduct(Product $product, int $quantity): cartItem
+    public function addProduct(ProductModel $product, int $quantity): cartItem
     {
         // find the product in cart
         $cartItem = $this->findProduct($product->getId());
@@ -42,7 +44,7 @@ class Cart implements ICartCalculation, ICartOperations
         return $cartItem;
     }
 
-    public function removeProduct(Product $product): void
+    public function removeProduct(ProductModel $product): void
     {
         $cartItem = $this->findProduct($product->getId());
         $index = array_search($cartItem, $this->cartItems);
