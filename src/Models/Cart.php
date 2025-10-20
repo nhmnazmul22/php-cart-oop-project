@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Models;
+use App\Interfaces\ICartCalculation;
+use App\Interfaces\ICartOperations;
+
 class Cart implements ICartCalculation, ICartOperations
 {
     /**

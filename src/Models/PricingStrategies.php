@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 interface PricingStrategy
 {
     public function calculate(Cart $cartItem): float;

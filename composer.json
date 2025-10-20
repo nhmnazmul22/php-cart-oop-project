@@ -1,0 +1,17 @@
+{
+    "name": "nhmnazmul/shopping-cart",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nhmnazmul22",
+            "email": "najmulmonir12345@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6"
+    }
+}

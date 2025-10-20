@@ -1,38 +1,33 @@
 <?php
+require __DIR__ . "../vendor/autoload.php";
+use Bramus\Router\Router;
 
-require_once "Product.php";
-require_once "Cart.php";
-require_once "CartItem.php";
-require_once "PricingStrategies.php";
+$router = new Router();
 
-$product1 = new Product(1, "Iphone 11", 2500, 10);
-$product2 = new Product(2, "M2 SSD", 400, 10);
-$product3 = new Product(3, "Samsung galaxy S20", 3200, 10);
+$router->get("/json-encoded", function () {
+    $age[] = ["Peter" => 35, "Ben" => 37, "Joe" => 43];
+    echo json_encode($age);
+});
 
+$router->get("/json-encoded-2", function () {
+    $cars = ["Volvo", "BMW", "Toyota"];
+    echo json_encode($cars);
+});
 
-$cart = new Cart(new DiscountPrice());
-$cartItem1 = $cart->addProduct($product1, 1);
-$cartItem2 = $cart->addProduct($product2, 1);
+$router->get("/json-decoded", function () {
+    $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
+    $arr = json_decode($jsonobj,  true);
 
-echo "Number of items in cart ";
-echo $cart->getTotalQuantity() . PHP_EOL;
-echo "Total Price of items in cart ";
-echo $cart->getTotalSum() . PHP_EOL;
+    // echo $arr["Peter"];
+    // echo $arr["Ben"];
+    // echo $arr["Joe"];
 
+    foreach ($arr as $key => $value) {
+        echo $key . " => " . $value . "<br>";
+    }
 
-$cartItem2->increaseQuantity();
-$cartItem2->increaseQuantity();
+    // var_dump(json_decode($jsonobj, true));
+});
 
-echo "Number of items in cart ";
-echo $cart->getTotalQuantity() . PHP_EOL;
-
-echo "Total Price of items in cart ";
-echo $cart->getTotalSum() . PHP_EOL;
-
-
-$cart->removeProduct($product2);
-echo "Number of items in cart ";
-echo $cart->getTotalQuantity() . PHP_EOL;
-
-echo "Total Price of items in cart ";
-echo $cart->getTotalSum() . PHP_EOL;
+// Run the router
+$router->run();
