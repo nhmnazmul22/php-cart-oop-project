@@ -1,9 +1,6 @@
 <?php
 
-
-
-
-class Cart
+class Cart implements ICartCalculation, ICartOperations
 {
     /**
      *
@@ -17,23 +14,17 @@ class Cart
         $this->pricingStrategy = $strategy;
     }
 
-    public function setItem($cartItem): void
-    {
-        $this->cartItems[] = $cartItem;
-    }
-
     public function getItems(): array
     {
         return $this->cartItems;
     }
-
 
     private function findProduct(int $productId)
     {
         return $this->cartItems[$productId] ?? null;
     }
 
-    public function addProduct(Product $product, int $quantity)
+    public function addProduct(Product $product, int $quantity): cartItem
     {
         // find the product in cart
         $cartItem = $this->findProduct($product->getId());
@@ -47,7 +38,7 @@ class Cart
         return $cartItem;
     }
 
-    public function removeProduct(Product $product)
+    public function removeProduct(Product $product): void
     {
         $cartItem = $this->findProduct($product->getId());
         $index = array_search($cartItem, $this->cartItems);
@@ -64,10 +55,8 @@ class Cart
         return $sum;
     }
 
-    public function getTotalSum()
+    public function getTotalSum(): float
     {
-
-
         return $this->pricingStrategy->calculate($this);
     }
 }

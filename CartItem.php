@@ -5,26 +5,15 @@ class cartItem
     private Product $product;
     private int $quantity = 0;
 
-
     public function __construct(Product $product, int $quantity)
     {
         $this->product = $product;
         $this->quantity = $quantity;
     }
 
-    public function setProduct(Product $product)
-    {
-        $this->product = $product;
-    }
-
     public function getProduct()
     {
         return $this->product;
-    }
-
-    public function setQuantity(int $quantity)
-    {
-        $this->quantity = $quantity;
     }
 
     public function getQuantity()

@@ -5,9 +5,8 @@ A PHP **Object-Oriented Programming (OOP)** practice project focused on building
 ### 🚀 Features
 
 - Add, update, and remove items from the shopping cart
-- Manage products with prices, quantities, and categories
-- Calculate totals, taxes, and discounts dynamically
-- Persistent cart using sessions or database
+- Manage products with prices, quantities
+- Calculate totals, discounts dynamically
 - Follows clean OOP design patterns and best practices
 
 ### 🧰 Tech Stack
@@ -21,13 +20,6 @@ A PHP **Object-Oriented Programming (OOP)** practice project focused on building
 - Understand reusable and maintainable code structure
 - Practice data handling and validation
 - Prepare for integration into larger web applications
-
-### 📦 Future Enhancements
-
-- User authentication system
-- Order and payment integration
-- Admin dashboard for inventory management
-- API endpoints for cart operations
 
 ### 🧑‍💻 Author
 

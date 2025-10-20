@@ -16,19 +16,10 @@ class Product
     }
 
     // Generate getter and setter of properties
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
 
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setTitle(string $title)
-    {
-        $this->title = $title;
     }
 
     public function getTitle()
@@ -36,10 +27,6 @@ class Product
         return $this->title;
     }
 
-    public function setPrice(float $price)
-    {
-        $this->price = $price;
-    }
     public function getPrice()
     {
         return $this->price;
