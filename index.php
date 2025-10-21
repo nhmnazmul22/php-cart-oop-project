@@ -2,39 +2,43 @@
 require __DIR__ . "/vendor/autoload.php";
 
 use App\Controllers\CartController;
+use App\Controllers\ProductController;
 use Bramus\Router\Router;
 
 $router = new Router();
 
-$router->get("/json-encoded", function () {
-    $age[] = ["Peter" => 35, "Ben" => 37, "Joe" => 43];
-    echo json_encode($age);
+// Get All Products
+$router->get("/products", function () {
+    $controller = new ProductController();
+    $controller->showAllProduct();
 });
 
-$router->get("/json-encoded-2", function () {
-    $cars = ["Volvo", "BMW", "Toyota"];
-    echo json_encode($cars);
+// Get Product by id
+$router->get("/products/(\w+)", function (string $id) {
+    $controller = new ProductController();
+    $controller->showProductById($id);
 });
 
-$router->get("/json-decoded", function () {
-    $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
-    $arr = json_decode($jsonobj,  true);
-
-    // echo $arr["Peter"];
-    // echo $arr["Ben"];
-    // echo $arr["Joe"];
-
-    foreach ($arr as $key => $value) {
-        echo $key . " => " . $value . "<br>";
-    }
-
-    // var_dump(json_decode($jsonobj, true));
+// Create new Product
+$router->post("/products", function () {
+    $controller = new ProductController();
+    $controller->createNewProduct();
 });
 
-$router->post("/addProduct", function () {
-    $controller = new CartController();
-    $controller->addProduct();
+// Update Products
+$router->put("/products/(\w+)", function (string $id) {
+    $controller = new ProductController();
+    $controller->updateExistsProduct($id);
 });
+
+// Delete Products
+$router->delete("/products/(\w+)", function (string $id) {
+    $controller = new ProductController();
+    $controller->deleteExistsProduct($id);
+});
+
+
+
 
 // Run the router
 $router->run();

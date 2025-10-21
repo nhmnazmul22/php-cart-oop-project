@@ -59,4 +59,14 @@ class ProductModel
     {
         $this->availableQuantity = $availableQuantity;
     }
+
+    public function toArray(?string $id = null): array
+    {
+        return [
+            "id" => $id ?? $this->id,
+            "title" => $this->title,
+            "price" => $this->price,
+            "availableQuantity" => $this->availableQuantity,
+        ];
+    }
 }

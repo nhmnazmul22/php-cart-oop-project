@@ -8,31 +8,30 @@ interface ProductRepositoryInterface
 {
     /**
      * Summary of getAllProduct
-     * @param ProductModel $product
      * @return ProductModel[]
      */
-    public function getAllProduct(ProductModel $product): array;
+    public function getAllProduct(): array;
 
     /**
      * Summary of getProductById
      * @param string $id
-     * @return ProductModel
+     * @return ?ProductModel
      */
-    public function getProductById(string $id): ProductModel;
+    public function getProductById(string $id): ?ProductModel;
 
     /**
      * Summary of createProduct
      * @param ProductModel $product
-     * @return bool
+     * @return ?string
      */
-    public function createProduct(ProductModel $product): bool;
+    public function createProduct(ProductModel $product): ?string;
 
     /**
      * Summary of updateProduct
      * @param ProductModel $product
-     * @return bool
+     * @return ?
      */
-    public function updateProduct(ProductModel $product): bool;
+    public function updateProduct(ProductModel $product): ?string;
 
     /**
      * Summary of deleteProduct
